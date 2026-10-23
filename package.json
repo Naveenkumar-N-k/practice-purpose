@@ -1,0 +1,21 @@
+{
+  "name": "practice-purpose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naveenkumar-N-k/practice-purpose.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Naveenkumar-N-k/practice-purpose/issues"
+  },
+  "homepage": "https://github.com/Naveenkumar-N-k/practice-purpose#readme"
+}

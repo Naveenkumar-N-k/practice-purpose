@@ -1,16 +1,36 @@
-name: testing whether github actions work
+name: 'Testing list of books endpoint-Simple Books API'
 on: workflow_dispatch
 jobs: 
-  first-job:
+  test-files:
     runs-on: windows-latest
     steps:
-      - name: Checkout Repo
+      - name: Referring our Repo    
         uses: actions/checkout@v7
-
-      - name: Install Python
-        uses: actions/setup-python@v7
+        
+      - name: Installing Node
+        uses: actions/setup-node@v7
         with:
-          python-version: '3.13'
+          node-version: 24
 
-      - name: 'Run trying-python.py Python file'
-        run: python trying-python.py
+      - name: Ensuring Node Version
+        run: node --version
+
+      - name: Install Dependencies
+        run: npm ci
+      
+      - name: Install Playwright Browsers 
+        run: npx playwright install chromium    # only downloading chromium browser for lesser workload
+
+      - name: Ensuring Playwright Version
+        run: npx playwright --version
+
+      - name: Running Playwright Tests
+        run: npm run test
+
+      - name: 'Presenting the HTML report' 
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

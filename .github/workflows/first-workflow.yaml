@@ -1,0 +1,16 @@
+name: testing whether github actions work
+on: workflow_dispatch
+jobs: 
+  first-job:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v7
+
+      - name: Install Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: 'Run trying-python.py Python file'
+        run: python trying-python.py

@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { BooksClient, BooksHelper } from '../clients/books';
 import { GetBooksQueryParam, Book } from '../clients/books';
 import { verifyStatusCodeandReturnJSON, throwingError } from '../utilities/basic-utils';
+import process from 'node:process';
 
 test('list of books with valid query parameters', async ({request}) => {
   const booksClient = new BooksClient(request);

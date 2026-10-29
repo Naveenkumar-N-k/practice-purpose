@@ -1,4 +1,4 @@
-name: 'Testing list of books endpoint-Simple Books API'
+name: 'Testing | Simple Books API'
 on: workflow_dispatch
 jobs: 
   test-files:
@@ -12,22 +12,20 @@ jobs:
         with:
           node-version: 24
 
-      - name: Ensuring Node Version
-        run: node --version
-
       - name: Install Dependencies
         run: npm ci
       
       - name: Install Playwright Browsers 
         run: npx playwright install chromium    # only downloading chromium browser for lesser workload
 
-      - name: Ensuring Playwright Version
-        run: npx playwright --version
-
       - name: Running Playwright Tests
         run: npm run test
+        env:
+          - CLIENT_NAME: ${{secrets.CLIENT_NAME}}
+          - CLIENT_EMAIL: ${{secrets.CLIENT_EMAIL}}
+          - ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
 
-      - name: 'Presenting the HTML report' 
+      - name: HTML report 
         uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:

@@ -21,9 +21,9 @@ jobs:
       - name: Running Playwright Tests
         run: npm run test
         env:
-          - CLIENT_NAME: ${{secrets.CLIENT_NAME}}
-          - CLIENT_EMAIL: ${{secrets.CLIENT_EMAIL}}
-          - ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
+          CLIENT_NAME: ${{secrets.CLIENT_NAME}}
+          CLIENT_EMAIL: ${{secrets.CLIENT_EMAIL}}
+          ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
 
       - name: HTML report 
         uses: actions/upload-artifact@v7
